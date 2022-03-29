@@ -130,7 +130,12 @@ impl TabsPolicy for NumberedTabs {
     }
 
     fn close_tab(&self, key: Self::Key, data: &mut ViewModel) {
-        data.remove_tab(key)
+        let tab = data.tabs.get(key).unwrap();
+        match tab.tab_type {
+            TabType::EmptyPage => {}
+            TabType::UserPage => data.user.users.clear(),
+        };
+        data.remove_tab(key);
     }
 
     fn tab_label(
