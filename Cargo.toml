@@ -6,6 +6,3 @@ edition = "2021"
 [dependencies]
 druid = { version = "0.7.0", features = ["im"] }
 
-[dependencies.instant]
-version = "0.1.6"
-features = ["wasm-bindgen"]
